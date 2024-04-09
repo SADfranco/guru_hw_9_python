@@ -22,9 +22,9 @@ class RegistrationPage:
         browser.element(
             f'.react-datepicker__day--0{user.bdday}:not(.react-datepicker__day--outside-month)'
         ).click()
-        for sub in user.subjects.split(","):
+        for sub in user.subjects.split(", "):
             browser.element('#subjectsInput').type(sub).press_enter()
-        for hob in user.hobbies.split(","):
+        for hob in user.hobbies.split(", "):
             browser.all('.custom-checkbox').element_by(have.exact_text(hob)).click()
         browser.element('#uploadPicture').send_keys(os.path.abspath(f'resources/{user.photo}'))
         browser.element('#currentAddress').type(user.address)

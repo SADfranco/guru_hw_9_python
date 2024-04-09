@@ -15,7 +15,7 @@ def test_user():
         bdyear='1992',
         bdday='31',
         subjects='Maths, Physics',
-        hobbies='Sports',
+        hobbies='Sports, Reading',
         photo='avatar.jpg',
         address='14, Ashoka Rd, Sansad Marg Area',
         state='NCR',
