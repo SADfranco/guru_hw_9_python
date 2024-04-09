@@ -1,5 +1,6 @@
 import dataclasses
 
+
 @dataclasses.dataclass
 class User:
     first_name: str
@@ -7,9 +8,9 @@ class User:
     email: str
     gender: str
     phone_number: str
-    bdyear: str
-    bdmonth: str
-    bdday: str
+    bd_year: str
+    bd_month: str
+    bd_day: str
     subjects: str
     hobbies: str
     photo: str
