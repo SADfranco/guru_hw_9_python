@@ -9,13 +9,14 @@
 В этой части мы рассматриваем как ценный c точки зрения бизнеса шаг пользователя – «заполнение отдельных данных о пользователе» или «подтверждение результата проделанной работы» (как например, подтверждение что регистрация прошла успешно).
 
 Финальный тест должен иметь структуру вида:
-
+```
 registration_page.open()
 registration_page.fill_first_name('Yasha')
 registration_page.fill_last_name('Kramarenko')
 ...
 registration_page.submit()
 registration_page.should_have_registered(yasha)
+
 ... или использовав идеи шаблона Fluent PageObject:
 registration_page.open()
 registration_page \
@@ -25,9 +26,8 @@ registration_page \
     ... \
     .submit()
 registration_page.should_have_registered('Yasha Kramarenko', 'yashaka@gmail.com', ...)
+
 ... или использовав форматирование через круглые скобки вместо \
-
-
 registration_page.open()
 (  
     registration_page
@@ -38,8 +38,9 @@ registration_page.open()
     .submit()
 )
 registration_page.should_have_registered('Yasha Kramarenko', 'yashaka@gmail.com', ...)
+```
 Другие варианты реализации проверки:
-
+```
 registration_page.should_have_registered(
     student_name='Yasha Kramarenko', 
     student_email='yashaka@gmail.com',
@@ -50,7 +51,7 @@ registration_page.should_have_registered(
     ('Student Email', 'yashaka@gmail.com'), 
     ...
 )
-
+```
 
 Дополнительные условия и подсказки:
 
@@ -71,26 +72,26 @@ registration_page.should_have_registered(
 
 
 Финальный тест должен выглядеть примерно так:
-
+```
 yasha = User(first_name='yasha', last_name='kramarenko', email='yashaka@gmail.com', ...)
 registration_page.open()
 registration_page.register(yasha)
 registration_page.should_have_registered(yasha)
+
 Допустимо реализовать шаг вида:
-
-
 registration_page.fill(yasha).submit()
+
 Допустимо предопределить пользователя для тестов в отдельном модуле users.py и в тесте либо использовать напрямую:
 registration_page.open()
 registration_page.register(users.student)
 registration_page.should_have_registered(users.student)
-... либо через переменную:
 
+... либо через переменную:
 student = users.student
 registration_page.open()
 registration_page.register(student)
 registration_page.should_have_registered(student)
-
+```
 
 Дополнительные условия и подсказки:
 
